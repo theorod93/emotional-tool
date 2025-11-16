@@ -82,45 +82,39 @@ The goal is to train classical ML and lightweight DL models (no heavy LLMs) on a
 └── pyproject.toml (or setup.py)
 ```
 
-
-
 ## Installation
 
 ### 1. Clone the repository
 
----bash
+```bash
 git clone https://github.com/<your-username>/emotion-analysis.git
 cd emotion-analysis
----
+```
 
 ### 2. Create and activate a virtual environment
 
----bash
+```bash
 python3 -m venv .venv
 macOS / Linux
 source .venv/bin/activate
 Windows (PowerShell)
 ..venv\Scripts\Activate
----
+```
 
 ### 3. Install dependencies
----bash
+```bash
 pip install --upgrade pip
 pip install -r requirements.txt
 (optional) dev tools: linting, formatting, testing
 pip install -r requirements-dev.txt
----
-
-
----
+```
 
 ## Data Setup
 
 1. Create the `data/` directory if it does not exist:
----bash
+```bash
 mkdir -p data
-
----
+```
 
 2. Add the following files locally (they are intentionally **not** committed):
 
@@ -136,15 +130,16 @@ mkdir -p data
 
 > Only `labels` and `labels_str` are used as ground truth; `labels_source` is ignored in training.
 
----
+
 
 ## Local Usage
 
 ### 1. Generate a small test dataset (optional, for dry runs)
 
----bash
+```bash
 python -m src.data.create_test_data
----
+```
+
 This creates `data/test_sample.csv` with ≈1000 synthetic samples.
 
 ### 2. Preprocess data
@@ -155,9 +150,9 @@ Configure `src/config/config_local.yaml` to point to either:
 - `data/super_emotion_dataset.csv` for the real dataset.
 
 Then run:
----bash
+```bash
 python -m src.data.preprocess_local
----
+```
 
 This will:
 
@@ -168,9 +163,9 @@ This will:
 
 ### 3. Train models with nested cross‑validation
 
----bash
+```bash
 python -m src.models.train_local
----
+```
 
 This will:
 
@@ -244,22 +239,21 @@ text
 
 ### Linting & Formatting
 
----bash
+```bash
 ruff check src tests
 black src tests
-
----
+```
 
 Use the `Makefile` to bundle common tasks:
 
----bash
+```bash
 make test
 make lint
 make format
 make all
----
+```
 
----
+
 
 ## Environment Variables
 
@@ -267,15 +261,14 @@ Sensitive configuration (e.g. AWS keys) should **never** be committed.
 
 Use `.env.example` as a template:
 
----bash
+```bash
 cp .env.example .env
-
 edit .env with your secrets
----
+```
 
 Add your real values in `.env` (which is ignored by git).
 
----
+
 
 ## License
 
@@ -283,7 +276,6 @@ By default this repo uses the MIT License (see `LICENSE`), but you can change it
 
 Make sure to respect third‑party licenses (e.g. NRC Emotion Lexicon).
 
----
 
 ## Roadmap
 
