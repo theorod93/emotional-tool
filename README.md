@@ -8,7 +8,7 @@ The goal is to train classical ML and lightweight DL models (no heavy LLMs) on a
 - Lexicon‑based baseline using the NRC Emotion Lexicon.
 - CPU‑friendly local testing and optional GPU acceleration on AWS.
 
----
+
 
 ## Features
 
@@ -32,10 +32,11 @@ The goal is to train classical ML and lightweight DL models (no heavy LLMs) on a
   - Saved models (`.pkl`) and TF‑IDF vectorizer.
   - Inference script for local batch or single‑text predictions.
 
----
+
 
 ## Project Structure
 
+```
 .emotion-analysis/
 ├── src/
 │ ├── init.py
@@ -79,22 +80,23 @@ The goal is to train classical ML and lightweight DL models (no heavy LLMs) on a
 ├── .env.example
 ├── Makefile
 └── pyproject.toml (or setup.py)
+```
 
-text
 
----
 
 ## Installation
 
 ### 1. Clone the repository
 
+---bash
 git clone https://github.com/<your-username>/emotion-analysis.git
 cd emotion-analysis
 
-text
+---
 
 ### 2. Create and activate a virtual environment
 
+---bash
 python3 -m venv .venv
 
 macOS / Linux
@@ -103,7 +105,7 @@ source .venv/bin/activate
 Windows (PowerShell)
 ..venv\Scripts\Activate
 
-text
+---
 
 ### 3. Install dependencies
 
@@ -120,10 +122,10 @@ text
 ## Data Setup
 
 1. Create the `data/` directory if it does not exist:
-
+---bash
 mkdir -p data
 
-text
+---
 
 2. Add the following files locally (they are intentionally **not** committed):
 
@@ -145,10 +147,9 @@ text
 
 ### 1. Generate a small test dataset (optional, for dry runs)
 
+---bash
 python -m src.data.create_test_data
-
-text
-
+---
 This creates `data/test_sample.csv` with ≈1000 synthetic samples.
 
 ### 2. Preprocess data
@@ -159,10 +160,9 @@ Configure `src/config/config_local.yaml` to point to either:
 - `data/super_emotion_dataset.csv` for the real dataset.
 
 Then run:
-
+---bash
 python -m src.data.preprocess_local
-
-text
+---
 
 This will:
 
@@ -173,9 +173,9 @@ This will:
 
 ### 3. Train models with nested cross‑validation
 
+---bash
 python -m src.models.train_local
-
-text
+---
 
 This will:
 
@@ -189,9 +189,9 @@ This will:
 
 ### 4. Run inference
 
+---bash
 python -m src.inference.inference_local
-
-text
+---
 
 This script:
 
@@ -238,7 +238,6 @@ device: "cpu"
 
 text
 
----
 
 ## Development
 
@@ -250,19 +249,20 @@ text
 
 ### Linting & Formatting
 
+---bash
 ruff check src tests
 black src tests
 
-text
+---
 
 Use the `Makefile` to bundle common tasks:
 
+---bash
 make test
 make lint
 make format
 make all
-
-text
+---
 
 ---
 
@@ -272,10 +272,11 @@ Sensitive configuration (e.g. AWS keys) should **never** be committed.
 
 Use `.env.example` as a template:
 
+---bash
 cp .env.example .env
 
 edit .env with your secrets
-text
+---
 
 Add your real values in `.env` (which is ignored by git).
 
