@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+.env/
+.env.*.backup
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs
+logs/
+*.log
+
+# Data (large or sensitive)
+data/*.csv
+data/*.tsv
+data/*.json
+data/*.parquet
+data/*.xlsx
+
+# BUT keep small sample / schema files
+!data/README.md
+!data/sample_*.csv
+
+# Models & artifacts
+outputs/
+models/
+checkpoints/
+
+# Cache
+.cache/
+**/__pycache__/
