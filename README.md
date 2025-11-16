@@ -91,31 +91,26 @@ The goal is to train classical ML and lightweight DL models (no heavy LLMs) on a
 ---bash
 git clone https://github.com/<your-username>/emotion-analysis.git
 cd emotion-analysis
-
 ---
 
 ### 2. Create and activate a virtual environment
 
 ---bash
 python3 -m venv .venv
-
 macOS / Linux
 source .venv/bin/activate
-
 Windows (PowerShell)
 ..venv\Scripts\Activate
-
 ---
 
 ### 3. Install dependencies
-
+---bash
 pip install --upgrade pip
 pip install -r requirements.txt
-
 (optional) dev tools: linting, formatting, testing
 pip install -r requirements-dev.txt
+---
 
-text
 
 ---
 
